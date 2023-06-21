@@ -1,10 +1,10 @@
 services:
   postgres:
-    image: postgres:15-alpine
+    image: postgres:15
     ports:
-      -5432:5432
+      - 5432:5432
     environment:
-      POSTGRES_DB: ata_db
+      POSTGRES_DB: test_db
       POSTGRES_HOST_AUTH_METHOD: trust  
   
   backend:
@@ -20,5 +20,5 @@ services:
     depends_on:
       - postgres
     environment:
-      DATABASE_URL: postgres://postgres@posrgres:5432/ata_db
+      DATABASE_URL: postgres://postgres@postgres:5432/test_db
       PORT: 5000
